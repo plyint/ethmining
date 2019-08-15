@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.ethmining.net/posts/building-an-ethereum-mining-rig-with-ubuntu-and-nvidia/</loc>
+    <lastmod>2019-07-27T17:55:04-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.ethmining.net/</loc>
+    <lastmod>2019-07-27T17:55:04-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.ethmining.net/posts/</loc>
+    <lastmod>2019-07-27T17:55:04-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.ethmining.net/tools/calculator/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.ethmining.net/top/faq/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.ethmining.net/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.ethmining.net/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.ethmining.net/tools/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.ethmining.net/top/</loc>
+  </url>
+  
+</urlset>

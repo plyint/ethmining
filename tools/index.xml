@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on ETHMining.net</title>
+    <link>https://www.ethmining.net/tools/</link>
+    <description>Recent content in Tools on ETHMining.net</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://www.ethmining.net/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://www.ethmining.net/tools/calculator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ethmining.net/tools/calculator/</guid>
+      <description>Ethereum Mining Calculator Use this mining calculator to figure out your profitability for your mining rig(s).
+You will want to plug in the following 4 values to the calculator below based on your planned setup. You can leave the other prepopulated values as is.
+ Hashing Power - The total amount of compute power for your rig. Normally measured in MH/s. (e.g. An nVidia 1070 GTX card normally gets around 26.</description>
+    </item>
+    
+  </channel>
+</rss>

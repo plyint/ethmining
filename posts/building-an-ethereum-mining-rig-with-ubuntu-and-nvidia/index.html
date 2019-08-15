@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="ETHMining.net">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://www.ethmining.net/img/home-eth-rig.jpg">
+    <meta property="twitter:image" content="https://www.ethmining.net/img/home-eth-rig.jpg" />
+    
+
+    
+    <meta name="title" content="Building an Ethereum mining rig with Ubuntu/NVIDIA" />
+    <meta property="og:title" content="Building an Ethereum mining rig with Ubuntu/NVIDIA" />
+    <meta property="twitter:title" content="Building an Ethereum mining rig with Ubuntu/NVIDIA" />
+    
+
+    
+    <meta name="description" content="A complete walkthrough from purchasing to mining">
+    <meta property="og:description" content="A complete walkthrough from purchasing to mining" />
+    <meta property="twitter:description" content="A complete walkthrough from purchasing to mining" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="eth, ethereum, mining, mine, guide, rig, machine, computer, server, howto">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Building an Ethereum mining rig with Ubuntu/NVIDIA-Ethereum Mining | ETHMining.net</title>
+
+    <link rel="canonical" href="/posts/building-an-ethereum-mining-rig-with-ubuntu-and-nvidia/">
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/calcwidget.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-5152175927318115",
+        enable_page_level_ads: true
+      });
+    </script>
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ETHMining.net</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/tools/calculator/">Calculator</a></li>
+                    
+                        <li><a href="/top/faq/">FAQ</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-eth-rig.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Building an Ethereum mining rig with Ubuntu/NVIDIA</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                ETHMining.net
+                         
+                        on 
+                        Saturday, July 27, 2019
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                
+
+<h1 id="overview">Overview</h1>
+
+<p>This guide assumes your are familiar with <a href="https://www.ethereum.org/beginners/">Ethereum</a> and <a href="https://www.coindesk.com/information/ethereum-mining-works">mining</a> Ether.  It will walk you through the entire process of building, assembling and installing an Ethereum mining rig running the <a href="https://ubuntu.com/server">Ubuntu Server LTS</a> operating system using NVIDIA graphics cards.</p>
+
+<p>There are 3 main steps to the process:</p>
+
+<ol>
+<li><a href="#purchasing-the-hardware">Purchasing the hardware</a></li>
+<li><a href="#assembling-the-machine">Assembling the machine</a></li>
+<li><a href="#installing-the-os-and-software">Installing the OS and software</a></li>
+</ol>
+
+<p>Before beginning, it&rsquo;s worth noting why one might choose to run Ubuntu for the operating system rather than say ethOS or Windows.  Although other operating systems provide a slight boost in performance, having a machine running Ubuntu will offer the advantage of an open source, general purpose computing environment.</p>
+
+<p>This means that the maintenance of the machine for things like upgrades and security updates are straightforward to perform and the machine can be repurposed for other activities should mining become unprofitable.  For example, if you have nvidia GPUs, then you can make use of the CUDA platform support to train machine learning models.</p>
+
+<h1 id="purchasing-the-hardware">Purchasing the hardware</h1>
+
+<p>Below is a list of hardware used to build a 6 GPU mining rig with links for purchasing.  Feel free to adapt this list based on part availability, cost, or computational improvements. This is intended as a starting point.  There are other cheaper and more efficient choices than the below configuration. Note, many of the parts below may no longer be sold or are currently out-of-stock.</p>
+
+<p>IMPORTANT: This list does not include a keyboard, mouse, or monitor as well as the associated cables you will need to connect the rig.  It is assumed that existing ones already exist and can be repurposed or temporarily used in order to complete the OS and software installation.</p>
+
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Processor</td>
+<td><a href="https://www.newegg.com/intel-pentium-g4400/p/N82E16819117625?Item=N82E16819117625">Intel Pentium G4400 Skylake Dual-Core 3.3 GHz LGA 1151</a></td>
+</tr>
+
+<tr>
+<td>Motherboard</td>
+<td><a href="https://www.newegg.com/p/N82E16813130900?Item=N82E16813130900">MSI Z170A SLI Plus LGA 1151 Intel Z170 HDMI SATA 6Gb/s USB 3.1 ATX</a></td>
+</tr>
+
+<tr>
+<td>Memory</td>
+<td><a href="https://www.newegg.com/crucial-4gb-288-pin-ddr4-sdram/p/N82E16820148856?Item=N82E16820148856">Crucial 4GB 288-Pin DDR4 SDRAM DDR4 2133</a></td>
+</tr>
+
+<tr>
+<td>Hard Drive</td>
+<td><a href="https://www.newegg.com/crucial-mx300-275gb/p/N82E16820156150?Item=N82E16820156150">Crucial MX300 2.5&rdquo; 275GB SATA III 3D NAND Internal Solid State Drive (SSD)</a></td>
+</tr>
+
+<tr>
+<td>Graphics Card</td>
+<td><a href="https://www.newegg.com/evga-geforce-gtx-1070-08g-p4-6676-kr/p/N82E16814487321?Item=N82E16814487321">EVGA GeForce GTX 1070 FTW2</a></td>
+</tr>
+
+<tr>
+<td>Riser Card</td>
+<td><a href="https://www.amazon.com/gp/product/B073JCLVQQ/ref=ppx_yo_dt_b_asin_title_o06_s00?ie=UTF8&amp;psc=1">eSynic 5 Pack PCI-E Riser Card</a></td>
+</tr>
+
+<tr>
+<td>Power Supply</td>
+<td><a href="https://www.amazon.com/gp/product/B0074CRF14/ref=ppx_yo_dt_b_asin_title_o07_s00?ie=UTF8&amp;psc=1">Thermaltake Toughpower XT 1275W 80PLUS Platinum </a></td>
+</tr>
+
+<tr>
+<td>Frame</td>
+<td><a href="https://www.amazon.com/gp/product/B073YP99GJ/ref=ppx_yo_dt_b_asin_title_o03_s00?ie=UTF8&amp;psc=1">6 GPU Mining Aluminum Case Rig Open Air Frame</a></td>
+</tr>
+
+<tr>
+<td>Fans</td>
+<td><a href="https://www.amazon.com/gp/product/B01BLVOC9Q/ref=ppx_yo_dt_b_asin_title_o07_s00?ie=UTF8&amp;psc=1">APEVIA CF512S-BK 120mm 4pin &amp; 3pin Black Silent Case Fan (5-pk)</a></td>
+</tr>
+</tbody>
+</table>
+
+<p>When purchasing your power supply and graphics card, pay attention to the power consumption and how many cards you are purchasing.  The total draw from the cards should be around 80% of the wattage of your power supply.  If the cards are pushing that limit then you should get multiple supplies or upgrade your power supply to a larger card.  Also, some graphics cards have two 8-pin power connectors. (e.g. the NVIDIA 1070 FTW2&rsquo;s linked above)  If that is the case then you will likely need to purchase additional cables for your power supply that can support two 8-pin connections, such as the <a href="https://www.amazon.com/gp/product/B07CZBZN5R/ref=ppx_yo_dt_b_asin_title_o08_s00?ie=UTF8&amp;psc=1">COMeap Replacement for ATX CPU 8 Pin Male to Dual PCIe 2X 8 Pin</a></p>
+
+<p>The motherboard also needs to support the number of cards you are looking to connect.  Some boards do not have the capacity on the PCI bus to support more than a few graphics cards, so be careful with your selection.</p>
+
+<h1 id="assembling-the-machine">Assembling the machine</h1>
+
+<!-- Pictures and descriptions of building -->
+
+<p>First, begin assembling the base of the frame. Many people choose to build their own frame out of wood or angled aluminum.  To save time you can buy a frame online and just assemble it as we have done here.
+<a href="/img/rig/IMG_7874.jpg"><img src="/img/rig/thumbs/IMG_7874.jpg" alt="Start of the frame" /></a>
+<a href="/img/rig/IMG_7875.jpg"><img src="/img/rig/thumbs/IMG_7875.jpg" alt="Posts of the frame" /></a>
+<a href="/img/rig/IMG_7876.jpg"><img src="/img/rig/thumbs/IMG_7876.jpg" alt="Cross-ties of the frame" /></a></p>
+
+<p>Next, attach the motherboard and the hard drive to the frame. Note, as part of this step you will also insert the memory into the slot(s) on the motherboard and install the processor and heatsink/fan combo.  (Follow the provided instructions for your specific processor and motherboard)
+<a href="/img/rig/IMG_7877.jpg"><img src="/img/rig/thumbs/IMG_7877.jpg" alt="Motherboard and hard drive" /></a>
+<a href="/img/rig/IMG_7879.jpg"><img src="/img/rig/thumbs/IMG_7879.jpg" alt="Motherboard closeup" /></a>
+<a href="/img/rig/IMG_7878.jpg"><img src="/img/rig/thumbs/IMG_7878.jpg" alt="Hard drive closeup" /></a></p>
+
+<p>Now install the power supply.  Connect the main board power and the auxiliary power connectors to the motherboard.
+<a href="/img/rig/IMG_7882.jpg"><img src="/img/rig/thumbs/IMG_7882.jpg" alt="Power supply" /></a></p>
+
+<p>Next, install the graphics cards.  First add the supports for the graphics cards to the frame, then screw each graphic card to the upper support with the underside of card resting on the lower support.
+<a href="/img/rig/IMG_7884.jpg"><img src="/img/rig/thumbs/IMG_7884.jpg" alt="Supports for graphics cards" /></a>
+<a href="/img/rig/IMG_7885.jpg"><img src="/img/rig/thumbs/IMG_7885.jpg" alt="Graphics cards" /></a></p>
+
+<p>After the graphics cards are installed, attach a riser card to each graphics card PCIe connector.<br />
+Then insert the daughter boards for the riser cards into the PCIe slots on the main board.<br />
+Finally, tie each riser card to its corresponding daughter board with a USB cable.
+<a href="/img/rig/IMG_7886.jpg"><img src="/img/rig/thumbs/IMG_7886.jpg" alt="Riser cards" /></a>
+<a href="/img/rig/IMG_7887.jpg"><img src="/img/rig/thumbs/IMG_7887.jpg" alt="Riser card closeup" /></a>
+<a href="/img/rig/IMG_7888.jpg"><img src="/img/rig/thumbs/IMG_7888.jpg" alt="Daughter board closeup" /></a></p>
+
+<p>Attach the power switch to the system board.  You can zip tie the power switch to the frame of the mining rig, so it does not hang loose.
+<a href="/img/rig/IMG_7898.jpg"><img src="/img/rig/thumbs/IMG_7898.jpg" alt="Power switch" /></a></p>
+
+<p>Now plug in the power to the riser cards, install the fans and plug in the power to the graphics cards themselves.
+<a href="/img/rig/IMG_7899.jpg"><img src="/img/rig/thumbs/IMG_7899.jpg" alt="Power connections closeup" /></a>
+<a href="/img/rig/IMG_7897.jpg"><img src="/img/rig/thumbs/IMG_7897.jpg" alt="Power to riser cards" /></a>
+<a href="/img/rig/IMG_7900.jpg"><img src="/img/rig/thumbs/IMG_7900.jpg" alt="Final assembly with fans" /></a></p>
+
+<h1 id="installing-the-os-and-software">Installing the OS and software</h1>
+
+<p>Now that the rig assembly is completed it is time to install Ubuntu, the graphics driver and mining client software.  For this you will need to attach the rig to a keyboard, mouse, and monitor.  Note you will likely need to plug the display cable(typically DVI cable) into one of the graphics cards, as the system will default to displaying output to the primary card slot on the board.  Check your motherboard manual to determine, which PCIe slot is designated as the primary graphics card slot.</p>
+
+<p>Note, that some of the steps below are specific to using NVIDIA graphics cards.  (e.g. anything related to disabling the open source nouveau driver or building the NVIDIA proprietary driver)  If you are using AMD graphics cards, then these steps are not applicable to you and you may have additional steps you need to take.</p>
+
+<h2 id="os-installation-steps">OS installation steps:</h2>
+
+<ol>
+<li>It is likely the BIOS of the motherboard is out of date.  Make sure you have the latest version of the BIOS by powering on the machine and going into setup during the boot cycle. (Typically pressing F1 or Delete when the machine starts)  Then compare the version number of your BIOS to the latest one listed on the manufacturer&rsquo;s website.</li>
+<li>If you need to update the BIOS, download the latest version from the motherboard manufacturer&rsquo;s website and flash the motherboard via USB stick.  Reboot the machine.</li>
+<li>If the BIOS software of your motherboard supports it, use the builtin utility (e.g. &ldquo;Board Explorer utility&rdquo;) to check that all PCIe cards are reporting present in the BIOS.  If not all are present, check for loose connections and ensure all cards have power.</li>
+<li>If your motherboard has an integrated graphics card, you can drive the display of the system from the integrated graphics port.  You should be able to designate this within the BIOS.  (e.g. For the motherboard provided in the parts list above, you would select the Integrated Graphics Card to boot by going to Settings &gt; Advanced &gt; Integrated Graphics Configuration and changing &ldquo;Initiate Graphic Adapter&rdquo; from PEG to IGD)</li>
+<li>Next your motherboard may require you to activate a setting to support driving graphics cards from all available PCIe slots.  (e.g. For the motherboard provided in the parts list above, you would need to turn on the Crypto currency mining setting labelled &ldquo;Above 4G memory&rdquo;, to allow the PCI bus to support more graphics cards by going to Settings &gt; Advanced &gt; PCI Subsystem Settings)  Save &amp; Exit.</li>
+<li>Turn off the computer using the manual power button once the display resets during the reboot sequence. (If we let it just reboot it will error, since the video output is coming from one of the GPUs instead of the onboard graphics card)</li>
+<li>Move the cable from the GPU to the onboard (integrated) graphics port.</li>
+<li>Turn on the computer</li>
+
+<li><p>At bootup, edit the grub configuration and disable noveau driver by adding &ldquo;nouveau.modeset=0&rdquo; to the end of the &ldquo;linux line&rdquo;.  (Typically right after the word quiet).  Something like the following&hellip;</p>
+
+<pre><code>linux     /boot/vmlinuz-4.15.0-55-generic.efi.signed root=UUID=7c357f9a-3c61-47e7-946e-499e8ea8ad1c ro quiet splash nouveau.modeset=0
+</code></pre>
+
+<p>This will prevent the default nouveau driver from loading and potentially causing the boot sequence of the ubuntu installation to error.</p></li>
+
+<li><p>Once, booted proceed with the installation of Ubuntu Server LTS.  If you are unfamiliar with this process please refer to the <a href="https://help.ubuntu.com/lts/serverguide/installation.html">official instructions</a>.</p></li>
+
+<li><p>Remove the USB stick and reboot</p></li>
+
+<li><p>Disable the nouveau driver by editing the grub configuration and adding &ldquo;nouveau.modeset=0&rdquo; to the end of the linux line just as you did previously.</p></li>
+
+<li><p>After the system boots, verify that the graphics cards are present</p>
+
+<pre><code>lspci | grep -i vga
+</code></pre>
+
+<p>If all are not present (e.g only 5 of 6 cards are present) try the following:</p>
+
+<ul>
+<li>Ensure power connections to riser cards are plugged in</li>
+<li>Try turning off the power to different riser cards or sections of riser cards to isolate the problem</li>
+<li>Try swapping the &ldquo;PCI express to riser card&rdquo; USB connections to isolate the problem</li>
+<li>Once problem riser card is identified, try replacing it</li>
+</ul></li>
+
+<li><p>In order to use the latest NVIDIA driver we need to compile the driver against our current version of the kernel using the same GCC version as the kernel. (If we don&rsquo;t do this the driver may potentially not work correctly or fail to load entirely)  To do this, first install the C and C++ compiler and make, so we can build a specific version of GCC.</p>
+
+<pre><code>sudo apt install gcc g++ make
+</code></pre></li>
+
+<li><p>Get GCC 7.3(version used for latest LTS server kernel of Ubuntu) and extract it</p>
+
+<pre><code>cd /opt
+sudo wget https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz
+sudo tar xJf gcc-7.3.0.tar.xz
+</code></pre></li>
+
+<li><p>Build and install GCC 7.3</p>
+
+<pre><code>sudo su -
+cd /opt/gcc-7.3
+./contrib/download_prerequisites
+mkdir build
+cd build &amp;&amp; ../configure --disable-multilib --enable-checking=release
+make -j2 &amp;&amp; make install
+</code></pre></li>
+
+<li><p>Uncomment deb-src urls from /etc/apt/source.list</p>
+
+<pre><code>deb-src http://archive.ubuntu.com/ubuntu bionic main restricted
+deb-src http://archive.ubuntu.com/ubuntu bionic-updates main restricted
+</code></pre></li>
+
+<li><p>Update and upgrade install.</p>
+
+<pre><code>apt update
+apt upgrade
+</code></pre></li>
+
+<li><p>Install dpkg-dev and Download Linux Kernel source code and install libssl (Needed for kernel config)</p>
+
+<pre><code>cd /usr/src
+apt install dpkg-dev
+apt source linux-image-unsigned-$(uname -r)
+apt install libssl-dev
+</code></pre></li>
+
+<li><p>Copy existing kernel configuration and Module.symvers file to linux source directory</p>
+
+<pre><code>cd /usr/src/linux-4.15.0
+cp /boot/config-$(uname -r) /usr/src/linux-4.15.0/.config
+cp /usr/src/linux-headers-$(uname -r)/Module.symvers /usr/src/linux-4.15.0/
+</code></pre></li>
+
+<li><p>Generate configuration to allow the nvidia driver to work with our kernel</p>
+
+<pre><code>make oldconfig &amp;&amp; make prepare &amp;&amp; make modules_prepare
+</code></pre></li>
+
+<li><p>Edit the  /usr/src/linux-4.15.0/include/generated/utsrelease.h file to make the UTS Release number match our kernel.  Note you should change the string 4.15.0-55-generic in the example below to match whatever the output is of &ldquo;echo $(uname -r)&rdquo;</p>
+
+<pre><code>#define UTS_RELEASE &quot;4.15.0-55-generic&quot;
+</code></pre></li>
+
+<li><p>Download nvidia driver from website (<a href="https://www.nvidia.com/Download/index.aspx?lang=en-us">https://www.nvidia.com/Download/index.aspx?lang=en-us</a>)</p></li>
+
+<li><p>Copy the driver to the mining rig using SFTP</p></li>
+
+<li><p>Change back to the directory with the NVIDIA proprietary driver and make the driver executable</p>
+
+<pre><code>sudo chmod 755 NVIDIA-Linux-x86_64-430.14.run
+</code></pre></li>
+
+<li><p>Run the NVIDIA proprietary driver installer, specifying the correct GCC version and the path to the linux sources.  Accept the defaults in the installer&rsquo;s menus and complete the installation.</p>
+
+<pre><code>sudo CC=/usr/local/bin/gcc ./NVIDIA-Linux-x86_64-430.14.run --kernel-source-path=/usr/src/linux-4.15.0
+</code></pre></li>
+
+<li><p>Blacklist the opensource nouveau driver.  Create a new file blacklist-nouveau.conf and add the following&hellip;</p>
+
+<pre><code>blacklist nouveau
+options nouveau modeset=0
+</code></pre></li>
+
+<li><p>Update the initramfs; otherwise, Ubuntu will still load the Nouveau driver when you reboot.</p>
+
+<pre><code>sudo update-initramfs -u
+</code></pre></li>
+
+<li><p>Restart the computer</p>
+
+<pre><code>sudo reboot
+</code></pre></li>
+
+<li><p>Verify all cards are present by running nvidia-smi</p>
+
+<pre><code>nvidia-smi
+</code></pre></li>
+</ol>
+
+<h2 id="software-installation-steps">Software installation steps:</h2>
+
+<p>Now that the OS and graphics card drivers are running it is time to install the mining software.  Whatever pool you select may have different installation guidelines and requirements.  For the purposes of this guide we will detail standing up the Ethermine client (<a href="https://ethermine.org/">https://ethermine.org/</a>)</p>
+
+<ol>
+<li><p>Download the latest version of Ethermine from the releases page.  (<a href="https://github.com/ethereum-mining/ethminer/releases">https://github.com/ethereum-mining/ethminer/releases</a>) and copy the archive to the rig via sftp (or wget/curl the archive direct to the rig from the website)</p></li>
+
+<li><p>Extract the archive</p>
+
+<pre><code>tar xzf ethminer-0.17.1-linux-x86_64.tar.gz
+</code></pre></li>
+
+<li><p>Run a test of the client using the following command to ensure your system behaves normally.  If your power supply is bad or your system is otherwise not able to cope with the power demands this is where you will see it as your machine may very likely reboot or shutoff.</p>
+
+<pre><code>bin/ethminer -U -M 1
+</code></pre></li>
+
+<li><p>Copy bin/ethminer to /usr/bin/ethminer</p></li>
+
+<li><p>Create a file called eth-miner.service with the contents below.  Be sure to replace <USER> with the name of the user&rsquo;s home directory you are using.  Also, change the string &ldquo;0x34e287e0f6f14449288caf7d52bff046f379069a.gpurig3&rdquo; to your public ethereum address and machine name.</p>
+
+<pre><code>[Unit]
+Description=Mine Ether
+
+[Service]
+Environment=GPU_FORCE_64BIT_PTR=0
+Environment=GPU_MAX_HEAP_SIZE=100
+Environment=GPU_USE_SYNC_OBJECTS=1
+Environment=GPU_MAX_ALLOC_PERCENT=100[Unit]
+
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/&lt;USER&gt;/.Xauthority
+
+WorkingDirectory=/home/&lt;USER&gt;
+ExecStart=/bin/bash --login -c &quot;ethminer -U --farm-recheck 200 -P stratum1+ssl://0x34e287e0f6f14449288caf7d52bff046f379069a.gpurig3@us1.ethermine.org:5555&quot;
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></li>
+
+<li><p>Copy the eth-miner.service file to /etc/systemd/system/eth-miner.service</p></li>
+
+<li><p>Reload the systemd unit files</p>
+
+<pre><code>sudo systemctl daemon-reload
+</code></pre></li>
+
+<li><p>Start the eth-miner service</p>
+
+<pre><code>sudo service eth-miner start
+</code></pre></li>
+
+<li><p>Monitor the logs to see that the service connects properly and begins mining.  If all goes well you should see the hashrate of your mining rig spit out periodically.</p>
+
+<pre><code>journalctl -u eth-miner.service -f
+</code></pre></li>
+
+<li><p>After about 5 to 10 minutes you should see your hashrate appear publicly on Ethermine (e.g. <a href="https://ethermine.org/miners/34e287e0f6f14449288caf7d52bff046f379069a/dashboard">https://ethermine.org/miners/34e287e0f6f14449288caf7d52bff046f379069a/dashboard</a>)</p></li>
+</ol>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                </ul>
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="ETHMining.net" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; 2019 ETHMining.net, a Plyint production
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+</body>
+</html>
