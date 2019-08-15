@@ -1,0 +1,67 @@
+baseurl = "https://www.ethmining.net"
+title = "ETHMining.net"
+theme = "hugo-theme-cleanwhite"
+languageCode = "en-us"
+googleAnalytics = ""
+preserveTaxonomyNames = true
+paginate = 5 #frontpage pagination
+hasCJKLanguage = true
+
+[outputs]
+home = ["HTML", "RSS"]
+
+[params]
+  header_image = "img/home-eth-rig.jpg"
+  SEOTitle = "Ethereum Mining | ETHMining.net"
+  description = "Guide to building an Ethereum mining rig running Ubuntu"
+  keyword = "eth, ethereum, mining, mine, guide, rig, machine, computer, server, howto"
+  slogan = "An introductory guide to Ethereum Mining"
+
+  image_404 = "img/404-bg.jpg"
+  title_404 = "Page Not Found"
+
+  # leancloud storage for page view counter
+  page_view_conter = false 
+  leancloud_app_id = ""
+  leancloud_app_key = ""
+
+  featured_tags = false
+  featured_condition_size = 1 
+
+  friends = false
+  bookmarks = false
+
+  # Include any custom CSS and/or JS files, url or relative to /static folder
+  #custom_css = ["css/lightbox.css", "https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css", "css/main.css"]
+  #custom_js = ["js/lightbox.js", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js", "js/main.js"]
+
+  # Highlight.js theme
+  # demo: https://highlightjs.org/static/demo/
+  highlightjs = "docco"
+
+  [params.social]
+  rss            = true 
+  #email          = "youremail@gmail.com"
+  #facebook      = "full profile url in facebook"
+  #googleplus    = "full profile url in googleplus"
+  #twitter       = "full profile url in twitter"
+  #linkedin       = "https://www.linkedin.com/in/yourlinkedinid"
+  #stackoverflow  = "https://stackoverflow.com/users/yourstackoverflowid"
+  #instagram     = "full profile url in instagram"
+  #github         = "https://github.com/yourgithub"
+  #wechat         = "your wechat qr code image"
+  #medium         = "full profile url in medium"
+  #pinterest     = "full profile url in pinterest"
+  #reddit        = "full profile url in reddit"
+  #gitlab        = "full profile url in gitlab"
+  #mastodon      = "full profile url in mastodon"
+  #keybase       = "full profile url in keybase"
+  #git           = "full profile url for git user"
+  
+  [[params.addtional_menus]]
+  title =  "Calculator"
+  href =  "/tools/calculator/"
+
+  [[params.addtional_menus]]
+  title =  "FAQ"
+  href =  "/top/faq/"
