@@ -1,6 +1,6 @@
 baseurl = "https://www.ethmining.net"
 title = "ETHMining.net"
-theme = "hugo-theme-cleanwhite"
+theme = "hugo-theme-cleanwhite-ethmining"
 languageCode = "en-us"
 googleAnalytics = ""
 preserveTaxonomyNames = true
