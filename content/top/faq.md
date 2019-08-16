@@ -2,7 +2,7 @@
 showtoc: true
 ---
 # Frequently Asked Questions (FAQ)
-This FAQ is not exhaustive when it comes to mining Ethereum, but it does seek to provide short and to the point explanations of some of the more common questions newcomers to mining might have.  A good resource for further questions is the Ether Mining Subreddit (https://www.reddit.com/r/EtherMining/)
+This FAQ is not exhaustive in regards to mining Ethereum, but it does seek to provide short and direct explanations of some of the more common questions newcomers to mining might have.  A good resource for further questions is the Ether Mining Subreddit (https://www.reddit.com/r/EtherMining/)
 
 ## What is Ethereum?
 Ethereum is a proof-of-work, cryptocurrency based on the Bitcoin code base.  It differs from Bitcoin by allowing generic programs (aka smart contracts) to be written and run on the Ethereum blockchain, whereas Bitcoin was designed to be primarily used for financial transactions.  For more detailed information please see the Ethereum [wikipedia](https://en.wikipedia.org/wiki/Ethereum) page or visit the [official website](https://ethereum.org/). 
