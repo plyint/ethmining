@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on ETHMining.net</title>
@@ -19,7 +19,7 @@
       <guid>https://www.ethmining.net/posts/building-an-ethereum-mining-rig-with-ubuntu-and-nvidia/</guid>
       <description>Overview This guide assumes your are familiar with Ethereum and mining Ether. It will walk you through the entire process of building, assembling and installing an Ethereum mining rig running the Ubuntu Server LTS operating system using NVIDIA graphics cards.
 There are 3 main steps to the process:
- Purchasing the hardware Assembling the machine Installing the OS and software  Before beginning, it&amp;rsquo;s worth noting why one might choose to run Ubuntu for the operating system rather than say ethOS or Windows.</description>
+ Purchasing the hardware Assembling the machine Installing the OS and software  Before beginning, it&#39;s worth noting why one might choose to run Ubuntu for the operating system rather than say ethOS or Windows.</description>
     </item>
     
   </channel>
