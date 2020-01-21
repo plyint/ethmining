@@ -340,16 +340,16 @@ Finally, tie each riser card to its corresponding daughter board with a USB cabl
 </ol>
 <pre><code>sudo apt install gcc g++ make
 </code></pre><ol start="15">
-<li>Get GCC 7.3(version used for latest LTS server kernel of Ubuntu) and extract it</li>
+<li>Get GCC 7.4(version used for latest LTS server kernel of Ubuntu) and extract it</li>
 </ol>
 <pre><code>cd /opt
-sudo wget https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz
-sudo tar xJf gcc-7.3.0.tar.xz
+sudo wget https://ftp.gnu.org/gnu/gcc/gcc-7.4.0/gcc-7.4.0.tar.xz
+sudo tar xJf gcc-7.4.0.tar.xz
 </code></pre><ol start="16">
-<li>Build and install GCC 7.3</li>
+<li>Build and install GCC 7.4</li>
 </ol>
 <pre><code>sudo su -
-cd /opt/gcc-7.3
+cd /opt/gcc-7.4.0
 ./contrib/download_prerequisites
 mkdir build
 cd build &amp;&amp; ../configure --disable-multilib --enable-checking=release
