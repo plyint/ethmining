@@ -112,16 +112,16 @@ If all are not present (e.g only 5 of 6 cards are present) try the following:
 ```
 sudo apt install gcc g++ make
 ```
-15. Get GCC 7.3(version used for latest LTS server kernel of Ubuntu) and extract it
+15. Get GCC 7.4(version used for latest LTS server kernel of Ubuntu) and extract it
 ```
 cd /opt
-sudo wget https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz
-sudo tar xJf gcc-7.3.0.tar.xz
+sudo wget https://ftp.gnu.org/gnu/gcc/gcc-7.4.0/gcc-7.4.0.tar.xz
+sudo tar xJf gcc-7.4.0.tar.xz
 ```
-16. Build and install GCC 7.3
+16. Build and install GCC 7.4
 ```
 sudo su -
-cd /opt/gcc-7.3
+cd /opt/gcc-7.4.0
 ./contrib/download_prerequisites
 mkdir build
 cd build && ../configure --disable-multilib --enable-checking=release
