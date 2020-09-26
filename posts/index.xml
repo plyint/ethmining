@@ -6,10 +6,17 @@
     <description>Recent content in Posts on ETHMining.net</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jul 2019 17:55:04 -0500</lastBuildDate>
-    
-	<atom:link href="https://www.ethmining.net/posts/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Fri, 25 Sep 2020 17:55:04 -0500</lastBuildDate><atom:link href="https://www.ethmining.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Overclocking NVIDIA cards on Ubuntu for Ethereum mining</title>
+      <link>https://www.ethmining.net/posts/overclocking-nvidia-cards-on-ubuntu-for-ethereum-mining/</link>
+      <pubDate>Fri, 25 Sep 2020 17:55:04 -0500</pubDate>
+      
+      <guid>https://www.ethmining.net/posts/overclocking-nvidia-cards-on-ubuntu-for-ethereum-mining/</guid>
+      <description>Overview Once you&amp;rsquo;ve built your Ethereum mining rigs and they&amp;rsquo;ve been operational for a while, then you may desire to overclock the machines in order to boost the performance of each rig. Overclocking GPUs on Linux is a bit more involved than Windows, but it is still possible.
+There are 3 main steps to overclocking your graphics cards:
+ Install and configure X org Reinstall the NVIDIA driver Install a service to automatically overclock the GPUs at startup  Install and configure Xorg If you followed our previous guide to install Ubuntu Server LTS for mining Ethereum, then you will not have an X server installed on your system.</description>
+    </item>
     
     <item>
       <title>Building an Ethereum mining rig with Ubuntu/NVIDIA</title>
@@ -19,7 +26,7 @@
       <guid>https://www.ethmining.net/posts/building-an-ethereum-mining-rig-with-ubuntu-and-nvidia/</guid>
       <description>Overview This guide assumes your are familiar with Ethereum and mining Ether. It will walk you through the entire process of building, assembling and installing an Ethereum mining rig running the Ubuntu Server LTS operating system using NVIDIA graphics cards.
 There are 3 main steps to the process:
- Purchasing the hardware Assembling the machine Installing the OS and software  Before beginning, it&#39;s worth noting why one might choose to run Ubuntu for the operating system rather than say ethOS or Windows.</description>
+ Purchasing the hardware Assembling the machine Installing the OS and software  Before beginning, it&amp;rsquo;s worth noting why one might choose to run Ubuntu for the operating system rather than say ethOS or Windows.</description>
     </item>
     
   </channel>

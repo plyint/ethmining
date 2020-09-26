@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="ETHMining.net">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://www.ethmining.net/img/home-eth-rig.jpg">
+    <meta property="twitter:image" content="https://www.ethmining.net/img/home-eth-rig.jpg" />
+    
+
+    
+    <meta name="title" content="Ethereum Mining | ETHMining.net" />
+    <meta property="og:title" content="Ethereum Mining | ETHMining.net" />
+    <meta property="twitter:title" content="Ethereum Mining | ETHMining.net" />
+    
+
+    
+    <meta name="description" content="A step-by-step guide to increase the mining hash rate of your NVIDIA cards">
+    <meta property="og:description" content="A step-by-step guide to increase the mining hash rate of your NVIDIA cards" />
+    <meta property="twitter:description" content="A step-by-step guide to increase the mining hash rate of your NVIDIA cards" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="eth, ethereum, mining, mine, guide, rig, machine, computer, server, howto">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Ethereum Mining | ETHMining.net</title>
+
+    <link rel="canonical" href="/posts/overclocking-nvidia-cards-on-ubuntu-for-ethereum-mining/">
+
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/syntax.css">
+    
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145876426-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-145876426-1');
+    </script>
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/calcwidget.js"></script>
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/docco.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-5152175927318115",
+        enable_page_level_ads: true
+      });
+    </script>
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ETHMining.net</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    
+		    
+                        <li><a href="/tools/calculator/">Calculator</a></li>
+                    
+                        <li><a href="/top/faq/">FAQ</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-eth-rig.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Overclocking NVIDIA cards on Ubuntu for Ethereum mining</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                ETHMining.net
+                         
+                        on 
+                        Friday, September 25, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1 id="overview">Overview</h1>
+<p>Once you&rsquo;ve built your Ethereum mining rigs and they&rsquo;ve been operational for a while, then you may desire to overclock the machines in order to boost the performance of each rig.  Overclocking GPUs on Linux is a bit more involved than Windows, but it is still possible.</p>
+<p>There are 3 main steps to overclocking your graphics cards:</p>
+<ol>
+<li><a href="#install-and-configure-xorg">Install and configure X org</a></li>
+<li><a href="#reinstall-the-nvidia-driver">Reinstall the NVIDIA driver</a></li>
+<li><a href="#install-a-service-to-automatically-overclock-the-gpus-at-startup">Install a service to automatically overclock the GPUs at startup</a></li>
+</ol>
+<h1 id="install-and-configure-xorg">Install and configure Xorg</h1>
+<p>If you followed our previous guide to <a href="/posts/building-an-ethereum-mining-rig-with-ubuntu-and-nvidia">install Ubuntu Server LTS for mining Ethereum</a>, then you will not have an X server installed on your system.  In order to overclock NVIDIA cards on Ubuntu you need to install the X server from Xorg, so that we can change the configuration of the graphics cards to accept the parameters for overclocking using nvidia-settings. This is a required step as even though the nvidia-settings program is accessible through the CLI, it still expects to be able to connect to a display run by an X server.</p>
+<p>Note: If you installed the desktop version of Ubuntu, then it will already come with a window manager Gnome, KDE, XFCE, etc. and so X org will already be included by default and you can skip to <a href="#update-the-xorg-configuration">Update the Xorg configuration</a>.  Just remember that when you install the service to leave off the -x option.</p>
+<h3 id="install-the-packages-xorg-and-openbox">Install the packages xorg and openbox</h3>
+<p>To install Xorg and Openbox run the following command:</p>
+<pre><code>sudo apt-get install xorg openbox
+</code></pre><p>Note: We are installing openbox here, so that the <code>startx</code> command functions correctly.  Without openbox installed, an attempt will be made to start the X server, but then startx will terminate a few seconds later due to not being able to connect to the display.</p>
+<h3 id="update-the-xorg-configuration">Update the Xorg configuration</h3>
+<p>Next create an Xorg configuration file with all GPUs enabled:</p>
+<pre><code>sudo nvidia-xconfig --enable-all-gpus
+</code></pre><p>Now edit the Xorg configuration file and set the Coolbits option for each graphics card entry:</p>
+<pre><code>sudo vi /etc/X11/xorg.conf
+</code></pre><p>The Coolbits option is a bitmask integer value that turns on/off the ability to tweak certain features on the card.  Below is a reference of what each of the values mean.  You can also read about them on <a href="http://download.nvidia.com/XFree86/Linux-x86_64/430.14/README/xconfigoptions.html#Coolbits">NVIDIA&rsquo;s site</a> as well.</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>The NVIDIA driver will attempt to initialize SLI when using GPUs with different amounts of video memory</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The nvidia-settings Thermal Monitor page will allow configuration of GPU fan speed, on graphics boards with programmable fan capability</td>
+</tr>
+<tr>
+<td>8</td>
+<td>The PowerMizer page in the nvidia-settings control panel will display a table that allows setting per-clock domain and per-performance level offsets to apply to clock values. This is allowed on certain GeForce GPUs. Not all clock domains or performance levels may be modified. On GPUs based on the Pascal architecture the offset is applied to all performance levels.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>The nvidia-settings command line interface allows setting GPU overvoltage. This is allowed on certain GeForce GPUs.</td>
+</tr>
+</tbody>
+</table>
+<p>We will be setting the value of &ldquo;Coolbits&rdquo; to &ldquo;28&rdquo; (4+8+16), to enable all features except SLI.</p>
+<p>When editing the file, each graphics card entry will have a &ldquo;Device&rdquo; section.  This is where you need to add the Coolbits option.  You will also need to add the option AllowEmptyInitialConfiguration, as we won&rsquo;t be setting any screen geometry, as typically you want the machine to be able to operate headless.</p>
+<p>The options will look as follows:</p>
+<pre><code>    Option         &quot;Coolbits&quot; &quot;28&quot;
+    Option         &quot;AllowEmptyInitialConfiguration&quot;
+</code></pre><p>After editing, each device section should look similar to the following:</p>
+<pre><code>Section &quot;Device&quot;
+    Identifier     &quot;Device0&quot;
+    Driver         &quot;nvidia&quot;
+    VendorName     &quot;NVIDIA Corporation&quot;
+    BoardName      &quot;GeForce GTX 1070&quot;
+    BusID          &quot;PCI:1:0:0&quot;
+    Option         &quot;Coolbits&quot; &quot;28&quot;
+    Option         &quot;AllowEmptyInitialConfiguration&quot;
+EndSection
+</code></pre><p>Remember you should do this for each &ldquo;Device&rdquo; section and you should have the same number of &ldquo;Device&rdquo; sections as you have graphics cards in the rig.</p>
+<p>Once you have finished editing, save and exit the file.</p>
+<h1 id="reinstall-the-nvidia-driver">Reinstall the NVIDIA driver</h1>
+<p>Before reinstalling the NVIDIA driver you need to purge any old nvidia drivers that might have been installed by default.  This is important, so that the proprietary driver is found correctly when <em>startx</em> is invoked after reboot.  If this is not done, you may not be able to bring up the Xserver with the <em>startx</em> command.</p>
+<p>To purge your system of any old nvidia drivers, run the following command:</p>
+<pre><code>sudo apt-get purge nvidia*
+
+## Remove any old NVIDIA drivers
+</code></pre><p>Now, rerun the NVIDIA driver installation.  If you do not remember how to do that, then take a look at our first blog post when we built the mining rigs.  The command should be similar to the following:</p>
+<pre><code>sudo CC=/usr/local/bin/gcc ./NVIDIA-Linux-x86_64-430.14.run --kernel-source-path=/usr/src/linux-4.15.0
+</code></pre><p>During the installation NVIDIA may prompt you as follows:</p>
+<blockquote>
+<p>An incomplete installation of libglvnd was found.  All of the essential libglvnd libraries are present,
+but one or more optional components are missing.  Do you want to install a full copy of libglvnd?
+This will overwrite any existing libglvnd libraries.</p>
+</blockquote>
+<p>Select <strong>Install and overwrite existing files</strong></p>
+<p>Once the driver build and installation completes, the installer will prompt you to overwrite the existing
+xorg.conf file.</p>
+<blockquote>
+<p>Would you like to run the nvidia-xconfig utility to automatically update your X coniguration file
+so that the NVIDIA X driver will be used when you restart X?  Any pre-existing X configuration file
+will be backed up.</p>
+</blockquote>
+<p>Select <strong>Yes</strong> to overwrite the X configuration file.</p>
+<h1 id="install-a-service-to-automatically-overclock-the-gpus-at-startup">Install a service to automatically overclock the GPUs at startup</h1>
+<p>At this point, the graphics cards can be overclocked if you were to run <em>startx</em> and then manually invoke <em>nvidia-settings</em>.  Rather than doing this everytime we boot the system, we will install a script and service to make management easier.</p>
+<p>The script is <a href="https://github.com/plyint/nvidia-overclock.sh">nvidia-overclock.sh</a></p>
+<p>You can download it direct from the repo by running the following curl command:</p>
+<pre><code>sudo curl https://raw.githubusercontent.com/plyint/nvidia-overclock.sh/master/nvidia-overclock.sh -o /usr/local/bin/nvidia-overclock.sh
+</code></pre><p>Note: As an alternative to using the script approach, you could also set the values inside of the <em>.xinitrc</em> file that is run when an Xserver starts.  The script though has a few advantages in the simple mining use case:</p>
+<ul>
+<li>Quickly update values and rerun without reloading X (Easier to find good overclocking values)</li>
+<li>Logging, so you can see the overclock values that get set at boot</li>
+<li>Isolation from any other X activites</li>
+</ul>
+<p>Once the script is downloaded you need to mark the script as executable and install the service:</p>
+<pre><code>sudo chmod 755 /usr/local/bin/nvidia-overclock.sh
+sudo /usr/local/bin/nvidia-overclock.sh install-svc -x
+</code></pre><p>Note: We use the -x option, so that the <em>startx</em> command is invoked to start X windows automatically.  If you don&rsquo;t want or need this, then just omit this option.</p>
+<p>Finally, you will probably want to update the GPU overclock values (unless you have GTX 1070 cards) in the <em>nvidia-overclock.sh</em> script. Set the values for the <em>Graphics Clock Offset</em> and <em>Memory Transfer Rate Offset</em> to whatever you can find online that has worked for other people with the same card as you.</p>
+<pre><code>overclock () {
+  # The following default overclock values for the NVIDIA GTX 1070 
+  # were found on average to be stable:
+  # - Graphics Clock       = 100
+  # - Memory Transfer Rate = 1300
+  #
+  # Adjust these values for each card as needed.  Some cards are more 
+  # unstable than others and will only tolerate less overclocking.  Other
+  # cards might tolerate above normal overclocking. If you are unsure of the 
+  # starting values to use for your graphics cards, try searching online
+  # for what other people with your same graphics cards have found to be stable.
+  #
+  # Note: The lines below were used to configure a system with 6 graphics cards.
+  # You will neeed to add/remove lines based on the number of graphics cards in 
+  # your particular system.
+  log &quot;Calling nvidia-settings to overclock GPU(s)..&quot;
+  log &quot;$(nvidia-settings -c :0 -a '[gpu:0]/GPUGraphicsClockOffset[3]=100' -a '[gpu:0]/GPUMemoryTransferRateOffset[3]=1300')&quot;
+  log &quot;$(nvidia-settings -c :0 -a '[gpu:1]/GPUGraphicsClockOffset[3]=100' -a '[gpu:1]/GPUMemoryTransferRateOffset[3]=1300')&quot;
+  log &quot;$(nvidia-settings -c :0 -a '[gpu:2]/GPUGraphicsClockOffset[3]=100' -a '[gpu:2]/GPUMemoryTransferRateOffset[3]=1300')&quot;
+  log &quot;$(nvidia-settings -c :0 -a '[gpu:3]/GPUGraphicsClockOffset[3]=100' -a '[gpu:3]/GPUMemoryTransferRateOffset[3]=1300')&quot;
+  log &quot;$(nvidia-settings -c :0 -a '[gpu:4]/GPUGraphicsClockOffset[3]=100' -a '[gpu:4]/GPUMemoryTransferRateOffset[3]=1300')&quot;
+  log &quot;$(nvidia-settings -c :0 -a '[gpu:5]/GPUGraphicsClockOffset[3]=100' -a '[gpu:5]/GPUMemoryTransferRateOffset[3]=1300')&quot;
+}
+</code></pre><p>Note: If you are not sure what values to use, you can start off with the defaults and then adjust as you run the miner.  If the settings are bad you will see the card drop off from the system or stop mining.  If this happens just change the values and rerun the script again.</p>
+<p>You can quickly rerun the script again, without rebooting or starting an Xserver by running the following command:</p>
+<pre><code>/usr/local/bin/nvidia-overclock.sh overclock
+</code></pre><p>Once you are satisfied with your settings, you can reboot the system and test them out.</p>
+<pre><code>sudo reboot
+</code></pre><p>That&rsquo;s it.  The system should now automatically boot and overclock the cards for you.  The screen will likely show as all black for you once the system boots.  If you have a monitor/keyboard attached and want to login directly to the system, you will need to switch to an available virtual terminal (e.g. tty3).  To do this hit Ctrl+Alt+F3(the function key represents the tty number) to jump to virtual terminal 3.  You should now have a login prompt and can login as usual.</p>
+<p>Happy mining! :)</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/posts/building-an-ethereum-mining-rig-with-ubuntu-and-nvidia/" data-toggle="tooltip" data-placement="top" title="Building an Ethereum mining rig with Ubuntu/NVIDIA">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+
+            </div>
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="ETHMining.net" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                </ul>
+		<p class="copyright text-muted">
+		Copyright &copy; 2020 ETHMining.net, a <a href="https://plyint.com">Plyint</a> production
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+</body>
+</html>

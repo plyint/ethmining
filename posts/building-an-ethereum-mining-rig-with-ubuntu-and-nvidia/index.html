@@ -226,7 +226,7 @@
 <li><a href="#assembling-the-machine">Assembling the machine</a></li>
 <li><a href="#installing-the-os-and-software">Installing the OS and software</a></li>
 </ol>
-<p>Before beginning, it's worth noting why one might choose to run Ubuntu for the operating system rather than say ethOS or Windows.  Although other operating systems provide a slight boost in performance, having a machine running Ubuntu will offer the advantage of an open source, general purpose computing environment.</p>
+<p>Before beginning, it&rsquo;s worth noting why one might choose to run Ubuntu for the operating system rather than say ethOS or Windows.  Although other operating systems provide a slight boost in performance, having a machine running Ubuntu will offer the advantage of an open source, general purpose computing environment.</p>
 <p>This means that the maintenance of the machine for things like upgrades and security updates are straightforward to perform and the machine can be repurposed for other activities should mining become unprofitable.  For example, if you have nvidia GPUs, then you can make use of the CUDA platform support to train machine learning models.</p>
 <h1 id="purchasing-the-hardware">Purchasing the hardware</h1>
 <p>Below is a list of hardware used to build a 6 GPU mining rig with links for purchasing.  Feel free to adapt this list based on part availability, cost, or computational improvements. This is intended as a starting point.  There are other cheaper and more efficient choices than the below configuration. Note, many of the parts below may no longer be sold or are currently out-of-stock.</p>
@@ -253,7 +253,7 @@
 </tr>
 <tr>
 <td>Hard Drive</td>
-<td><a href="https://www.newegg.com/crucial-mx300-275gb/p/N82E16820156150?Item=N82E16820156150">Crucial MX300 2.5&rdquo; 275GB SATA III 3D NAND Internal Solid State Drive (SSD)</a></td>
+<td><a href="https://www.newegg.com/crucial-mx300-275gb/p/N82E16820156150?Item=N82E16820156150">Crucial MX300 2.5&quot; 275GB SATA III 3D NAND Internal Solid State Drive (SSD)</a></td>
 </tr>
 <tr>
 <td>Graphics Card</td>
@@ -277,7 +277,7 @@
 </tr>
 </tbody>
 </table>
-<p>When purchasing your power supply and graphics card, pay attention to the power consumption and how many cards you are purchasing.  The total draw from the cards should be around 80% of the wattage of your power supply.  If the cards are pushing that limit then you should get multiple supplies or upgrade your power supply to a larger wattage rating.  Also, some graphics cards have two 8-pin power connectors. (e.g. the NVIDIA 1070 FTW2's linked above)  If that is the case then you will likely need to purchase additional cables for your power supply that can support two 8-pin connections, such as the <a href="https://www.amazon.com/gp/product/B07CZBZN5R/ref=ppx_yo_dt_b_asin_title_o08_s00?ie=UTF8&amp;psc=1">COMeap Replacement for ATX CPU 8 Pin Male to Dual PCIe 2X 8 Pin</a></p>
+<p>When purchasing your power supply and graphics card, pay attention to the power consumption and how many cards you are purchasing.  The total draw from the cards should be around 80% of the wattage of your power supply.  If the cards are pushing that limit then you should get multiple supplies or upgrade your power supply to a larger wattage rating.  Also, some graphics cards have two 8-pin power connectors. (e.g. the NVIDIA 1070 FTW2&rsquo;s linked above)  If that is the case then you will likely need to purchase additional cables for your power supply that can support two 8-pin connections, such as the <a href="https://www.amazon.com/gp/product/B07CZBZN5R/ref=ppx_yo_dt_b_asin_title_o08_s00?ie=UTF8&amp;psc=1">COMeap Replacement for ATX CPU 8 Pin Male to Dual PCIe 2X 8 Pin</a></p>
 <p>The motherboard also needs to support the number of cards you are looking to connect.  Some boards do not have the capacity on the PCI bus to support more than a few graphics cards, so be careful with your selection.</p>
 <h1 id="assembling-the-machine">Assembling the machine</h1>
 <!-- raw HTML omitted -->
@@ -311,8 +311,8 @@ Finally, tie each riser card to its corresponding daughter board with a USB cabl
 <p>Note, that some of the steps below are specific to using NVIDIA graphics cards.  (e.g. anything related to disabling the open source nouveau driver or building the NVIDIA proprietary driver)  If you are using AMD graphics cards, then these steps are not applicable to you and you may have additional steps you need to take.</p>
 <h2 id="os-installation-steps">OS installation steps:</h2>
 <ol>
-<li>It is likely the BIOS of the motherboard is out of date.  Make sure you have the latest version of the BIOS by powering on the machine and going into setup during the boot cycle. (Typically pressing F1 or Delete when the machine starts)  Then compare the version number of your BIOS to the latest one listed on the manufacturer's website.</li>
-<li>If you need to update the BIOS, download the latest version from the motherboard manufacturer's website and flash the motherboard via USB stick.  Reboot the machine.</li>
+<li>It is likely the BIOS of the motherboard is out of date.  Make sure you have the latest version of the BIOS by powering on the machine and going into setup during the boot cycle. (Typically pressing F1 or Delete when the machine starts)  Then compare the version number of your BIOS to the latest one listed on the manufacturer&rsquo;s website.</li>
+<li>If you need to update the BIOS, download the latest version from the motherboard manufacturer&rsquo;s website and flash the motherboard via USB stick.  Reboot the machine.</li>
 <li>If the BIOS software of your motherboard supports it, use the builtin utility (e.g. &ldquo;Board Explorer utility&rdquo;) to check that all PCIe cards are reporting present in the BIOS.  If not all are present, check for loose connections and ensure all cards have power.</li>
 <li>If your motherboard has an integrated graphics card, you can drive the display of the system from the integrated graphics port.  You should be able to designate this within the BIOS.  (e.g. For the motherboard provided in the parts list above, you would select the Integrated Graphics Card to boot by going to Settings &gt; Advanced &gt; Integrated Graphics Configuration and changing &ldquo;Initiate Graphic Adapter&rdquo; from PEG to IGD)</li>
 <li>Next your motherboard may require you to activate a setting to support driving graphics cards from all available PCIe slots.  (e.g. For the motherboard provided in the parts list above, you would need to turn on the Crypto currency mining setting labelled &ldquo;Above 4G memory&rdquo;, to allow the PCI bus to support more graphics cards by going to Settings &gt; Advanced &gt; PCI Subsystem Settings)  Save &amp; Exit.</li>
@@ -336,7 +336,7 @@ Finally, tie each riser card to its corresponding daughter board with a USB cabl
 <li>Once problem riser card is identified, try replacing it</li>
 </ul>
 <ol start="14">
-<li>In order to use the latest NVIDIA driver we need to compile the driver against our current version of the kernel using the same GCC version as the kernel. (If we don't do this the driver may potentially not work correctly or fail to load entirely)  To do this, first install the C and C++ compiler and make, so we can build a specific version of GCC.</li>
+<li>In order to use the latest NVIDIA driver we need to compile the driver against our current version of the kernel using the same GCC version as the kernel. (If we don&rsquo;t do this the driver may potentially not work correctly or fail to load entirely)  To do this, first install the C and C++ compiler and make, so we can build a specific version of GCC.</li>
 </ol>
 <pre><code>sudo apt install gcc g++ make
 </code></pre><ol start="15">
@@ -392,7 +392,7 @@ cp /usr/src/linux-headers-$(uname -r)/Module.symvers /usr/src/linux-4.15.0/
 </ol>
 <pre><code>sudo chmod 755 NVIDIA-Linux-x86_64-430.14.run
 </code></pre><ol start="26">
-<li>Run the NVIDIA proprietary driver installer, specifying the correct GCC version and the path to the linux sources.  Accept the defaults in the installer's menus and complete the installation.</li>
+<li>Run the NVIDIA proprietary driver installer, specifying the correct GCC version and the path to the linux sources.  Accept the defaults in the installer&rsquo;s menus and complete the installation.</li>
 </ol>
 <pre><code>sudo CC=/usr/local/bin/gcc ./NVIDIA-Linux-x86_64-430.14.run --kernel-source-path=/usr/src/linux-4.15.0
 </code></pre><ol start="27">
@@ -432,7 +432,7 @@ options nouveau modeset=0
 <p>Copy bin/ethminer to /usr/bin/ethminer</p>
 </li>
 <li>
-<p>Create a file called eth-miner.service with the contents below.  Be sure to replace <!-- raw HTML omitted --> with the name of the user's home directory you are using.  Also, change the string &ldquo;0x34e287e0f6f14449288caf7d52bff046f379069a.gpurig3&rdquo; to your public ethereum address and machine name.</p>
+<p>Create a file called eth-miner.service with the contents below.  Be sure to replace <!-- raw HTML omitted --> with the name of the user&rsquo;s home directory you are using.  Also, change the string &ldquo;0x34e287e0f6f14449288caf7d52bff046f379069a.gpurig3&rdquo; to your public ethereum address and machine name.</p>
 </li>
 </ol>
 <pre><code>[Unit]
@@ -481,6 +481,11 @@ WantedBy=multi-user.target
                 <hr>
                 <ul class="pager">
                     
+                    
+                    <li class="next">
+                        <a href="/posts/overclocking-nvidia-cards-on-ubuntu-for-ethereum-mining/" data-toggle="tooltip" data-placement="top" title="Overclocking NVIDIA cards on Ubuntu for Ethereum mining">Next
+                            Post &rarr;</a>
+                    </li>
                     
                 </ul>
 
